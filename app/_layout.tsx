@@ -58,8 +58,12 @@ function RootLayoutNav() {
           options={{ title: 'Level 1' }}
         />
         <Stack.Screen
-          name='modal'
-          options={{ presentation: 'modal' }}
+          name='level-2'
+          options={{ title: 'Level 2' }}
+        />
+        <Stack.Screen
+          name='level-3'
+          options={{ title: 'Level 3' }}
         />
       </Stack>
     </ThemeProvider>
