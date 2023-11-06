@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Image, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { useAssets } from 'expo-asset';
-import ConfettiCannon from 'react-native-confetti-cannon';
+import { useRouter } from "expo-router";
 
 //Level 1 Understanding the Internet
 
@@ -10,25 +10,28 @@ const questions = [
     text: 'If you see something online that makes you feel uncomfortable, you should keep it to yourself.',
     isTrue: false,
   },
-  { text: 'If something online makes you feel uncomfortable, clicking on it might be fun.', isTrue: false },
+  { text: 'If something online makes you feel uncomfortable, clicking on it might be fun.', isTrue: true },
   {
     text: 'When you see something online that makes you uncomfortable, you should tell a trusted adult right away.',
     isTrue: true,
   },
-  { text: 'It is safe to share your home address and phone number online.', isTrue: false },
-  { text: 'Sharing your favorite color and the name of your pet online is safe.', isTrue: false },
-  { text: "Online, it's safe to share your passwords and school name.", isTrue: false },
-  { text: 'A password is used to lock your door.', isTrue: false },
-  { text: 'Passwords are used to protect your accounts and keep them private.', isTrue: true },
-  { text: 'Passwords are used to play video games.', isTrue: true },
-  { text: 'Passwords can change the weather.', isTrue: false },
+  // { text: 'It is safe to share your home address and phone number online.', isTrue: false },
+  // { text: 'Sharing your favorite color and the name of your pet online is safe.', isTrue: false },
+  // { text: "Online, it's safe to share your passwords and school name.", isTrue: false },
+  // { text: 'A password is used to lock your door.', isTrue: false },
+  // { text: 'Passwords are used to protect your accounts and keep them private.', isTrue: true },
+  // { text: 'Passwords are used to play video games.', isTrue: true },
+  // { text: 'Passwords can change the weather.', isTrue: false },
 ]
 
 export default function Level1() {
   const [assets] = useAssets([require('../assets/images/level-1-background.png')]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+
   const [score, setScore] = useState(0);
   const passingScore = (questions.length / 100) * 80;
+
+  const router = useRouter()
 
   if (!assets) {
     return (
@@ -38,7 +41,7 @@ export default function Level1() {
     );
   }
 
-  const handleAnswer = (answer) => {
+  const handleAnswer = (answer: boolean) => {
     if (answer === questions[currentQuestionIndex].isTrue) {
       setScore(score + 1);
     }
@@ -47,7 +50,8 @@ export default function Level1() {
       setCurrentQuestionIndex(nextQuestionIndex);
     } else {
       const passed = score >= passingScore;
-      alert(`Game Over! Your score is ${score} ${passed ? 'You passed!' : 'Try again!'}`);
+      router.push(`/complete/1`)
+      // alert(`Game Over! Your score is ${score} ${passed ? 'You passed!' : 'Try again!'}`);
       setCurrentQuestionIndex(0);
       setScore(0);
     }
@@ -55,12 +59,6 @@ export default function Level1() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.confettiView}>
-        <ConfettiCannon
-          count={200}
-          origin={{ x: 0, y: 100 }}
-        />
-      </View>
       <Image
         style={styles.image}
         source={assets[0]}
