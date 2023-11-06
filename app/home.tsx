@@ -1,24 +1,13 @@
-import { useEffect, useState } from 'react'
 import { StyleSheet, View } from 'react-native'
-
-import AsyncStorage from '@react-native-async-storage/async-storage'
 
 import LevelLink from '../components/LevelLink'
 import { WorldMap } from '../components/WorldMap'
+import { useLevelStore } from '../hooks/useLevelStore'
 
 import { levels } from './constants/levels'
 
 export default function HomeScreen() {
-  const [currentLevel, setCurrentLevel] = useState(0)
-
-  const getCurrentLevel = async () => {
-    const item = await AsyncStorage.getItem('current-level')
-    setCurrentLevel(item ? Number(item) : 1)
-  }
-
-  useEffect(() => {
-    getCurrentLevel()
-  }, [])
+  const currentLevel = useLevelStore((state) => state.currentLevel)
 
   return (
     <View style={styles.container}>

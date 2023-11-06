@@ -6,6 +6,6 @@ interface LevelState {
 }
 
 export const useLevelStore = create<LevelState>((set) => ({
-  currentLevel: 0,
+  currentLevel: 1,
   setLevel: (level) => set(() => ({ currentLevel: level })),
 }))
