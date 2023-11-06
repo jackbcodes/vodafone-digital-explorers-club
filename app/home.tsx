@@ -1,22 +1,50 @@
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 
-import { useAssets } from 'expo-asset'
 import { Link } from 'expo-router'
 
+import { WorldMap } from './components/WorldMap'
+
 export default function HomeScreen() {
-  const [assets, error] = useAssets([require('../assets/images/world-level.png')])
-
-  if (!assets) return
-
-  console.log(assets)
-
   return (
     <View style={styles.container}>
       <Link href='/level-1'>Go To Level 1</Link>
-      <Image
-        style={{ width: 385.41, height: 610.22 }}
-        source={assets[0]}
+      <View
+        style={{
+          width: 120,
+          height: 120,
+          borderWidth: 2,
+          borderColor: 'black',
+          position: 'absolute',
+          top: 150,
+          left: 100,
+          zIndex: 1000,
+        }}
       />
+      <View
+        style={{
+          width: 120,
+          height: 100,
+          borderWidth: 2,
+          borderColor: 'black',
+          position: 'absolute',
+          top: 220,
+          left: 250,
+          zIndex: 1000,
+        }}
+      />
+      <View
+        style={{
+          width: 120,
+          height: 100,
+          borderWidth: 2,
+          borderColor: 'black',
+          position: 'absolute',
+          top: 220,
+          left: 250,
+          zIndex: 1000,
+        }}
+      />
+      <WorldMap />
     </View>
   )
 }
