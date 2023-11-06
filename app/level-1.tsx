@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
-import { Image, StyleSheet, Text, View, TouchableOpacity } from 'react-native'
-
-import { useAssets } from 'expo-asset'
-import ConfettiCannon from 'react-native-confetti-cannon'
+import React, { useState } from 'react';
+import { Image, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { useAssets } from 'expo-asset';
+import ConfettiCannon from 'react-native-confetti-cannon';
 
 //Level 1 Understanding the Internet
 
@@ -26,46 +25,42 @@ const questions = [
 ]
 
 export default function Level1() {
-  const [assets] = useAssets([require('../assets/images/level-1-background.png')])
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
-  const [score, setScore] = useState(0)
-  const passingScore = (questions.length / 100) * 80
+  const [assets] = useAssets([require('../assets/images/level-1-background.png')]);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [score, setScore] = useState(0);
+  const passingScore = (questions.length / 100) * 80;
 
   if (!assets) {
     return (
       <View style={styles.container}>
         <Text>Loading...</Text>
       </View>
-    )
+    );
   }
 
-  const handleAnswer = (answer: boolean) => {
+  const handleAnswer = (answer) => {
     if (answer === questions[currentQuestionIndex].isTrue) {
-      setScore(score + 1)
+      setScore(score + 1);
     }
-    const nextQuestionIndex = currentQuestionIndex + 1
+    const nextQuestionIndex = currentQuestionIndex + 1;
     if (nextQuestionIndex < questions.length) {
-      setCurrentQuestionIndex(nextQuestionIndex)
+      setCurrentQuestionIndex(nextQuestionIndex);
     } else {
-      const passed = score >= passingScore
-      alert(`
-         Game Over! Your score is ${score} 
-         ${passed ? 'You are safe!' : 'you are not safe do it again!'}
-      `)
-
-      setCurrentQuestionIndex(0)
-      setScore(0)
+      const passed = score >= passingScore;
+      alert(`Game Over! Your score is ${score} ${passed ? 'You passed!' : 'Try again!'}`);
+      setCurrentQuestionIndex(0);
+      setScore(0);
     }
-  }
-
-  const handleCompletion = () => {}
+  };
 
   return (
     <View style={styles.container}>
-      <ConfettiCannon
-        count={200}
-        origin={{ x: -10, y: 0 }}
-      />
+      <View style={styles.confettiView}>
+        <ConfettiCannon
+          count={200}
+          origin={{ x: 0, y: 100 }}
+        />
+      </View>
       <Image
         style={styles.image}
         source={assets[0]}
@@ -88,17 +83,25 @@ export default function Level1() {
       </View>
       <Text style={styles.score}>Score: {score}</Text>
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#91E8FC',
-    display: 'flex',
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
+  },
+  confettiView: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    zIndex: 2,
+
   },
   image: {
     width: 400,
@@ -138,4 +141,4 @@ const styles = StyleSheet.create({
   score: {
     fontSize: 18,
   },
-})
+});
