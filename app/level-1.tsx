@@ -13,7 +13,7 @@ const questions = [
   { text: "It is safe to share your home address and phone number online.", isTrue: false },
   { text: "Sharing your favorite color and the name of your pet online is safe.", isTrue: true },
   { text: "Online, it's safe to share your passwords and school name.", isTrue: false },
-  { text: "A password is used to lock your door.", isTrue: false },
+  { text: "A password is used to lock your door1.", isTrue: false },
   { text: "Passwords are used to protect your accounts and keep them private.", isTrue: true },
   { text: "Passwords are used to play video games.", isTrue: false },
 ];
