@@ -1,8 +1,6 @@
 import { useEffect } from 'react'
-import { useColorScheme } from 'react-native'
 
 import FontAwesome from '@expo/vector-icons/FontAwesome'
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native'
 import { useFonts } from 'expo-font'
 import { SplashScreen, Stack } from 'expo-router'
 
@@ -44,24 +42,24 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
-  const colorScheme = useColorScheme()
-
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen
-          name='home'
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name='level-1'
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name='modal'
-          options={{ presentation: 'modal' }}
-        />
-      </Stack>
-    </ThemeProvider>
+    <Stack>
+      <Stack.Screen
+        name='home'
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name='level-1'
+        options={{ title: 'Level 1' }}
+      />
+      <Stack.Screen
+        name='level-2'
+        options={{ title: 'Level 2' }}
+      />
+      <Stack.Screen
+        name='level-3'
+        options={{ title: 'Level 3' }}
+      />
+    </Stack>
   )
 }
