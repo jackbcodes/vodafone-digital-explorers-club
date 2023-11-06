@@ -2,78 +2,102 @@ import { StyleSheet, View } from 'react-native'
 
 import { Link } from 'expo-router'
 
+import LevelLink, { ILevelLink } from './components/LevelLink'
 import { WorldMap } from './components/WorldMap'
+
+const levels: ILevelLink[] = [
+  {
+    id: 'level-1',
+    href: '/level-1',
+    callback: () => {
+      console.log('hi')
+    },
+    linkOptions: {
+      width: 90,
+      height: 80,
+      top: 610,
+      left: 260,
+    },
+  },
+  {
+    id: 'level-2',
+    href: '/level-2',
+    callback: () => {
+      console.log('hi')
+    },
+    linkOptions: {
+      width: 120,
+      height: 100,
+      top: 610,
+      left: 110,
+    },
+  },
+  {
+    id: 'level-3',
+    href: '/level-3',
+    callback: () => {
+      console.log('hi')
+    },
+    linkOptions: {
+      width: 120,
+      height: 100,
+      top: 470,
+      left: 100,
+    },
+  },
+  {
+    id: 'level-4',
+    href: '/level-4',
+    callback: () => {
+      console.log('hi')
+    },
+    linkOptions: {
+      width: 120,
+      height: 100,
+      top: 320,
+      left: 20,
+    },
+  },
+  {
+    id: 'level-5',
+    href: '/level-5',
+    callback: () => {
+      console.log('hi')
+    },
+    linkOptions: {
+      width: 120,
+      height: 100,
+      top: 220,
+      left: 250,
+    },
+  },
+  {
+    id: 'level-6',
+    href: '/level-6',
+    callback: () => {
+      console.log('hi')
+    },
+    linkOptions: {
+      width: 120,
+      height: 120,
+      top: 150,
+      left: 100,
+    },
+  },
+]
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Link
-        href='/level-6'
-        style={{
-          width: 120,
-          height: 120,
-          position: 'absolute',
-          top: 150,
-          left: 100,
-          zIndex: 1,
-        }}
-      />
-      <Link
-        href='/level-5'
-        style={{
-          width: 120,
-          height: 100,
-          position: 'absolute',
-          top: 220,
-          left: 250,
-          zIndex: 1,
-        }}
-      />
-      <Link
-        href='/level-4'
-        style={{
-          width: 120,
-          height: 100,
-          position: 'absolute',
-          top: 320,
-          left: 20,
-          zIndex: 1,
-        }}
-      />
-      <Link
-        href='/level-3'
-        style={{
-          width: 120,
-          height: 100,
-          position: 'absolute',
-          top: 470,
-          left: 100,
-          zIndex: 1,
-        }}
-      />
-      <Link
-        href='/level-2'
-        style={{
-          width: 120,
-          height: 100,
-
-          position: 'absolute',
-          top: 610,
-          left: 110,
-          zIndex: 1,
-        }}
-      />
-      <Link
-        href='/level-1'
-        style={{
-          width: 90,
-          height: 80,
-          position: 'absolute',
-          top: 610,
-          left: 260,
-          zIndex: 1,
-        }}
-      />
+      {levels &&
+        levels.map((level) => (
+          <LevelLink
+            callback={level.callback}
+            id={level.id}
+            href={level.href}
+            linkOptions={level.linkOptions}
+          />
+        ))}
       <WorldMap />
     </View>
   )
