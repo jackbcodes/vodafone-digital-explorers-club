@@ -88,8 +88,8 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   image: {
-    width: 385.41,
-    height: 610.22,
+    width: 400,
+    height: 800,
     marginBottom: 20,
     position: "absolute",
     top: 0,
