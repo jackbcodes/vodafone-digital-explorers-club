@@ -10,9 +10,9 @@ const levels: Omit<ILevelLink, 'currentLevel'>[] = [
   {
     level: 1,
     linkOptions: {
-      width: 90,
-      height: 80,
-      top: 610,
+      width: 95,
+      height: 100,
+      top: 595,
       left: 260,
     },
   },
@@ -20,8 +20,8 @@ const levels: Omit<ILevelLink, 'currentLevel'>[] = [
     level: 2,
     linkOptions: {
       width: 120,
-      height: 100,
-      top: 610,
+      height: 110,
+      top: 600,
       left: 110,
     },
   },
@@ -29,8 +29,8 @@ const levels: Omit<ILevelLink, 'currentLevel'>[] = [
     level: 3,
     linkOptions: {
       width: 120,
-      height: 100,
-      top: 470,
+      height: 110,
+      top: 460,
       left: 100,
     },
   },
@@ -38,8 +38,8 @@ const levels: Omit<ILevelLink, 'currentLevel'>[] = [
     level: 4,
     linkOptions: {
       width: 120,
-      height: 100,
-      top: 320,
+      height: 115,
+      top: 315,
       left: 20,
     },
   },
@@ -47,8 +47,8 @@ const levels: Omit<ILevelLink, 'currentLevel'>[] = [
     level: 5,
     linkOptions: {
       width: 120,
-      height: 100,
-      top: 220,
+      height: 120,
+      top: 210,
       left: 250,
     },
   },
@@ -56,8 +56,8 @@ const levels: Omit<ILevelLink, 'currentLevel'>[] = [
     level: 6,
     linkOptions: {
       width: 120,
-      height: 120,
-      top: 150,
+      height: 110,
+      top: 155,
       left: 100,
     },
   },

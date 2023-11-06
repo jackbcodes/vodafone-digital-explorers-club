@@ -71,6 +71,10 @@ function RootLayoutNav() {
         name='level-6'
         options={{ title: 'Level 6' }}
       />
+      <Stack.Screen
+        name='modal'
+        options={{ presentation: 'modal' }}
+      />
     </Stack>
   )
 }
