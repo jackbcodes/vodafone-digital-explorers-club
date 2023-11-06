@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Image, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { useAssets } from 'expo-asset';
-import ConfettiCannon from 'react-native-confetti-cannon';
 import { useRouter } from "expo-router";
 
 //Level 1 Understanding the Internet
