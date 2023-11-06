@@ -13,7 +13,7 @@ export default function HomeScreen() {
     <View style={styles.container}>
       <Text>Screen</Text>
       <Image
-        style={{ width: 375, height:  }}
+        style={{ width: 385.41, height: 610.22 }}
         source={assets[0]}
       />
     </View>
