@@ -1,23 +1,24 @@
-import { useEffect, useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { useEffect, useState } from 'react'
+import { StyleSheet, View } from 'react-native'
 
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
-import LevelLink from "../components/LevelLink";
-import { WorldMap } from "../components/WorldMap";
-import { levels } from "./constants/levels";
+import LevelLink from '../components/LevelLink'
+import { WorldMap } from '../components/WorldMap'
+
+import { levels } from './constants/levels'
 
 export default function HomeScreen() {
-  const [currentLevel, setCurrentLevel] = useState(0);
+  const [currentLevel, setCurrentLevel] = useState(0)
 
   const getCurrentLevel = async () => {
-    const item = await AsyncStorage.getItem("current-level");
-      setCurrentLevel(item ? Number(item) : 1);
-  };
+    const item = await AsyncStorage.getItem('current-level')
+    setCurrentLevel(item ? Number(item) : 1)
+  }
 
   useEffect(() => {
-    getCurrentLevel();
-  }, []);
+    getCurrentLevel()
+  }, [])
 
   return (
     <View style={styles.container}>
@@ -31,14 +32,14 @@ export default function HomeScreen() {
       ))}
       <WorldMap />
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#91E8FC",
+    backgroundColor: '#91E8FC',
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
-  }
-});
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+})
