@@ -1,6 +1,7 @@
 import { Image, StyleSheet, Text, View } from 'react-native'
 
 import { useAssets } from 'expo-asset'
+import { Link } from 'expo-router'
 
 export default function HomeScreen() {
   const [assets, error] = useAssets([require('../assets/images/world-level.png')])
@@ -11,7 +12,7 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.container}>
-      <Text>Screen</Text>
+      <Link href='/level-1'>Go To Level 1</Link>
       <Image
         style={{ width: 385.41, height: 610.22 }}
         source={assets[0]}
