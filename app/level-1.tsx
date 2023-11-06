@@ -6,22 +6,9 @@ import ConfettiCannon from 'react-native-confetti-cannon';
 //Level 1 Understanding the Internet
 
 const questions = [
-  {
-    text: 'If you see something online that makes you feel uncomfortable, you should keep it to yourself.',
-    isTrue: false,
-  },
-  { text: 'If something online makes you feel uncomfortable, clicking on it might be fun.', isTrue: false },
-  {
-    text: 'When you see something online that makes you uncomfortable, you should tell a trusted adult right away.',
-    isTrue: true,
-  },
   { text: 'It is safe to share your home address and phone number online.', isTrue: false },
-  { text: 'Sharing your favorite color and the name of your pet online is safe.', isTrue: false },
-  { text: "Online, it's safe to share your passwords and school name.", isTrue: false },
-  { text: 'A password is used to lock your door.', isTrue: false },
   { text: 'Passwords are used to protect your accounts and keep them private.', isTrue: true },
-  { text: 'Passwords are used to play video games.', isTrue: true },
-  { text: 'Passwords can change the weather.', isTrue: false },
+  { text: 'Sharing your favorite color and the name of your pet online is safe.', isTrue: false },
 ]
 
 export default function Level1() {
