@@ -1,7 +1,8 @@
-import { Image, View } from 'react-native'
+import { View } from 'react-native'
 
-import { useAssets } from 'expo-asset'
 import { Link } from 'expo-router'
+
+import { Tobi } from './Tobi'
 
 interface ILinkOptions {
   width: number
@@ -17,8 +18,6 @@ export interface ILevelLink {
 }
 
 const LevelLink = ({ level, currentLevel, linkOptions }: ILevelLink) => {
-  const [assets] = useAssets([require('../assets/images/tobi.png')])
-
   const isCurrentLevel = currentLevel === level
 
   return (
@@ -39,22 +38,16 @@ const LevelLink = ({ level, currentLevel, linkOptions }: ILevelLink) => {
         justifyContent: 'center',
       }}
     >
-      <View
-        style={{
-          width: linkOptions.width,
-          alignItems: 'center',
-        }}
-      >
-        {isCurrentLevel && (
-          <Image
-            style={{
-              width: 50,
-              height: 50,
-            }}
-            source={assets && assets[0]}
-          />
-        )}
-      </View>
+      {isCurrentLevel && (
+        <View
+          style={{
+            width: linkOptions.width,
+            alignItems: 'center',
+          }}
+        >
+          <Tobi />
+        </View>
+      )}
     </Link>
   )
 }
