@@ -39,8 +39,44 @@ export default function HomeScreen() {
           borderWidth: 2,
           borderColor: 'black',
           position: 'absolute',
-          top: 220,
-          left: 250,
+          top: 320,
+          left: 20,
+          zIndex: 1000,
+        }}
+      />
+      <View
+        style={{
+          width: 120,
+          height: 100,
+          borderWidth: 2,
+          borderColor: 'black',
+          position: 'absolute',
+          top: 470,
+          left: 100,
+          zIndex: 1000,
+        }}
+      />
+      <View
+        style={{
+          width: 120,
+          height: 100,
+          borderWidth: 2,
+          borderColor: 'black',
+          position: 'absolute',
+          top: 610,
+          left: 110,
+          zIndex: 1000,
+        }}
+      />
+      <View
+        style={{
+          width: 90,
+          height: 80,
+          borderWidth: 2,
+          borderColor: 'black',
+          position: 'absolute',
+          top: 610,
+          left: 260,
           zIndex: 1000,
         }}
       />
