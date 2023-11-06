@@ -27,6 +27,8 @@ const questions = [
 export default function Level1() {
   const [assets] = useAssets([require('../assets/images/level-1-background.png')]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [isComplete, setIsComplete] = useState(false);
+
   const [score, setScore] = useState(0);
   const passingScore = (questions.length / 100) * 80;
 
@@ -47,6 +49,7 @@ export default function Level1() {
       setCurrentQuestionIndex(nextQuestionIndex);
     } else {
       const passed = score >= passingScore;
+      setIsComplete(passed);
       alert(`Game Over! Your score is ${score} ${passed ? 'You passed!' : 'Try again!'}`);
       setCurrentQuestionIndex(0);
       setScore(0);
@@ -55,12 +58,12 @@ export default function Level1() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.confettiView}>
-        <ConfettiCannon
+      {isComplete && <View style={styles.confettiView}>
+         <ConfettiCannon
           count={200}
-          origin={{ x: 0, y: 100 }}
+          origin={{ x: 50, y: 100 }}
         />
-      </View>
+      </View>}
       <Image
         style={styles.image}
         source={assets[0]}
