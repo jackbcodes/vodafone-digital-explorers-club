@@ -1,6 +1,6 @@
 import { StyleSheet, View } from 'react-native'
 
-export default function LevelOneScreen() {
+export default function LevelTwoScreen() {
   return <View style={styles.container} />
 }
 
