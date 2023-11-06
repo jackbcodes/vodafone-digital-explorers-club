@@ -1,12 +1,26 @@
-import { StyleSheet, View } from 'react-native'
+import { useEffect, useState } from 'react'
+import { StyleSheet, Text, View } from 'react-native'
 
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import { Link } from 'expo-router'
 
 import { WorldMap } from './components/WorldMap'
 
 export default function HomeScreen() {
+  const [level, setLevel] = useState(0)
+
+  const getLevelFromStorage = async () => {
+    const storedLevel = await AsyncStorage.getItem('current-level')
+    setLevel(Number(storedLevel))
+  }
+
+  useEffect(() => {
+    getLevelFromStorage()
+  }, [])
+
   return (
     <View style={styles.container}>
+      <Text>Level: {level}</Text>
       <Link
         href='/level-6'
         style={{
@@ -56,7 +70,6 @@ export default function HomeScreen() {
         style={{
           width: 120,
           height: 100,
-
           position: 'absolute',
           top: 610,
           left: 110,
