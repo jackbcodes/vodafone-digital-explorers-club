@@ -5,27 +5,25 @@ import { useAssets } from 'expo-asset';
 //Level 1 Understanding the Internet
 
 const questions = [
-  { text: "The sky is blue.", isTrue: true },
-  { text: "Cats can fly.", isTrue: false },
   { text: "If you see something online that makes you feel uncomfortable, you should keep it to yourself.", isTrue: false },
   { text: "If something online makes you feel uncomfortable, clicking on it might be fun.", isTrue: false },
   { text: "When you see something online that makes you uncomfortable, you should tell a trusted adult right away.", isTrue: true },
   { text: "It is safe to share your home address and phone number online.", isTrue: false },
   { text: "Sharing your favorite color and the name of your pet online is safe.", isTrue: true },
   { text: "Online, it's safe to share your passwords and school name.", isTrue: false },
-  { text: "A password is used to lock your door1.", isTrue: false },
+  { text: "A password is used to lock your door.", isTrue: false },
   { text: "Passwords are used to protect your accounts and keep them private.", isTrue: true },
   { text: "Passwords are used to play video games.", isTrue: false },
+  { text: "Passwords can change the weather.", isTrue: false },
 ];
 
 
 export default function Level1() {
-  const [assets] = useAssets([require('../assets/images/world-level.png')]);
+  const [assets] = useAssets([require('../assets/images/level-1-background')]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
 
   if (!assets) {
-    // You might want to return a loading indicator here
     return <View style={styles.container}><Text>Loading...</Text></View>;
   }
 
