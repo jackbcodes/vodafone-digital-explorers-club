@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Image, StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 
 import { useAssets } from 'expo-asset'
+import ConfettiCannon from 'react-native-confetti-cannon'
 
 //Level 1 Understanding the Internet
 
@@ -16,7 +17,7 @@ const questions = [
     isTrue: true,
   },
   { text: 'It is safe to share your home address and phone number online.', isTrue: false },
-  { text: 'Sharing your favorite color and the name of your pet online is safe.', isTrue: true },
+  { text: 'Sharing your favorite color and the name of your pet online is safe.', isTrue: false },
   { text: "Online, it's safe to share your passwords and school name.", isTrue: false },
   { text: 'A password is used to lock your door.', isTrue: false },
   { text: 'Passwords are used to protect your accounts and keep them private.', isTrue: true },
@@ -28,6 +29,7 @@ export default function Level1() {
   const [assets] = useAssets([require('../assets/images/level-1-background.png')])
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [score, setScore] = useState(0)
+  const passingScore = (questions.length / 100) * 80
 
   if (!assets) {
     return (
@@ -37,7 +39,7 @@ export default function Level1() {
     )
   }
 
-  const handleAnswer = (answer) => {
+  const handleAnswer = (answer: boolean) => {
     if (answer === questions[currentQuestionIndex].isTrue) {
       setScore(score + 1)
     }
@@ -45,14 +47,25 @@ export default function Level1() {
     if (nextQuestionIndex < questions.length) {
       setCurrentQuestionIndex(nextQuestionIndex)
     } else {
-      alert(`Game Over! Your score is ${score}`)
+      const passed = score >= passingScore
+      alert(`
+         Game Over! Your score is ${score} 
+         ${passed ? 'You are safe!' : 'you are not safe do it again!'}
+      `)
+
       setCurrentQuestionIndex(0)
       setScore(0)
     }
   }
 
+  const handleCompletion = () => {}
+
   return (
     <View style={styles.container}>
+      <ConfettiCannon
+        count={200}
+        origin={{ x: -10, y: 0 }}
+      />
       <Image
         style={styles.image}
         source={assets[0]}
@@ -91,9 +104,9 @@ const styles = StyleSheet.create({
     width: 385.41,
     height: 610.22,
     marginBottom: 20,
-    position: "absolute",
+    position: 'absolute',
     top: 0,
-    left: 0
+    left: 0,
   },
   header: {
     fontSize: 28,
