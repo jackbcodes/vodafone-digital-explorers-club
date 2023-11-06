@@ -1,5 +1,7 @@
-import { StyleSheet, View } from 'react-native'
+import { useEffect, useState } from 'react'
+import { StyleSheet, Text, View } from 'react-native'
 
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import { Link } from 'expo-router'
 
 import LevelLink, { ILevelLink } from './components/LevelLink'
@@ -87,6 +89,17 @@ const levels: ILevelLink[] = [
 ]
 
 export default function HomeScreen() {
+  const [level, setLevel] = useState(0)
+
+  const getLevelFromStorage = async () => {
+    const storedLevel = await AsyncStorage.getItem('current-level')
+    setLevel(Number(storedLevel))
+  }
+
+  useEffect(() => {
+    getLevelFromStorage()
+  }, [])
+
   return (
     <View style={styles.container}>
       {levels &&
