@@ -9,12 +9,14 @@ interface ILinkOptions {
 
 export interface ILevelLink {
   level: 1 | 2 | 3 | 4 | 5 | 6
+  currentLevel: number
   linkOptions: ILinkOptions
 }
 
-const LevelLink = ({ level, linkOptions }: ILevelLink) => {
+const LevelLink = ({ level, currentLevel, linkOptions }: ILevelLink) => {
   return (
     <Link
+      disabled={currentLevel !== level}
       href={`/level-${level}`}
       style={{
         width: linkOptions.width,

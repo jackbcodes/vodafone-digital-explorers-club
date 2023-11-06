@@ -21,7 +21,7 @@ const questions = [
   { text: "Online, it's safe to share your passwords and school name.", isTrue: false },
   { text: 'A password is used to lock your door.', isTrue: false },
   { text: 'Passwords are used to protect your accounts and keep them private.', isTrue: true },
-  { text: 'Passwords are used to play video games.', isTrue: false },
+  { text: 'Passwords are used to play video games.', isTrue: true },
   { text: 'Passwords can change the weather.', isTrue: false },
 ]
 
@@ -101,8 +101,8 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   image: {
-    width: 385.41,
-    height: 610.22,
+    width: 400,
+    height: 800,
     marginBottom: 20,
     position: 'absolute',
     top: 0,
