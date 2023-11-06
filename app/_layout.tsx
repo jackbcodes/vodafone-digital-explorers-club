@@ -59,6 +59,18 @@ function RootLayoutNav() {
         name='level-3'
         options={{ title: 'Level 3' }}
       />
+      <Stack.Screen
+        name='level-4'
+        options={{ title: 'Level 4' }}
+      />
+      <Stack.Screen
+        name='level-5'
+        options={{ title: 'Level 5' }}
+      />
+      <Stack.Screen
+        name='level-6'
+        options={{ title: 'Level 6' }}
+      />
     </Stack>
   )
 }

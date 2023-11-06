@@ -1,5 +1,3 @@
-import { Pressable } from 'react-native'
-
 import { Link } from 'expo-router'
 
 interface ILinkOptions {
@@ -10,17 +8,14 @@ interface ILinkOptions {
 }
 
 export interface ILevelLink {
-  id: string
-  href: string
-  callback: () => any
+  level: 1 | 2 | 3 | 4 | 5 | 6
   linkOptions: ILinkOptions
 }
 
-const LevelLink = ({ id, href, linkOptions }: ILevelLink) => {
+const LevelLink = ({ level, linkOptions }: ILevelLink) => {
   return (
     <Link
-      id={id}
-      href={href}
+      href={`/level-${level}`}
       style={{
         width: linkOptions.width,
         height: linkOptions.height,

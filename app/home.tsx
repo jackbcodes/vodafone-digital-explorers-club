@@ -6,11 +6,7 @@ import { useLevel } from '../utils/storage'
 
 const levels: ILevelLink[] = [
   {
-    id: 'level-1',
-    href: '/level-1',
-    callback: () => {
-      console.log('hi')
-    },
+    level: 1,
     linkOptions: {
       width: 90,
       height: 80,
@@ -19,11 +15,7 @@ const levels: ILevelLink[] = [
     },
   },
   {
-    id: 'level-2',
-    href: '/level-2',
-    callback: () => {
-      console.log('hi')
-    },
+    level: 2,
     linkOptions: {
       width: 120,
       height: 100,
@@ -32,11 +24,7 @@ const levels: ILevelLink[] = [
     },
   },
   {
-    id: 'level-3',
-    href: '/level-3',
-    callback: () => {
-      console.log('hi')
-    },
+    level: 3,
     linkOptions: {
       width: 120,
       height: 100,
@@ -45,11 +33,7 @@ const levels: ILevelLink[] = [
     },
   },
   {
-    id: 'level-4',
-    href: '/level-4',
-    callback: () => {
-      console.log('hi')
-    },
+    level: 4,
     linkOptions: {
       width: 120,
       height: 100,
@@ -58,11 +42,7 @@ const levels: ILevelLink[] = [
     },
   },
   {
-    id: 'level-5',
-    href: '/level-5',
-    callback: () => {
-      console.log('hi')
-    },
+    level: 5,
     linkOptions: {
       width: 120,
       height: 100,
@@ -71,11 +51,7 @@ const levels: ILevelLink[] = [
     },
   },
   {
-    id: 'level-6',
-    href: '/level-6',
-    callback: () => {
-      console.log('hi')
-    },
+    level: 6,
     linkOptions: {
       width: 120,
       height: 120,
@@ -93,9 +69,7 @@ export default function HomeScreen() {
       {levels &&
         levels.map((level) => (
           <LevelLink
-            callback={level.callback}
-            id={level.id}
-            href={level.href}
+            level={level.level}
             linkOptions={level.linkOptions}
           />
         ))}
