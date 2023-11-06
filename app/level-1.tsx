@@ -17,9 +17,8 @@ const questions = [
   { text: "Passwords can change the weather.", isTrue: false },
 ];
 
-
 export default function Level1() {
-  const [assets] = useAssets([require('../assets/images/level-1-background')]);
+  const [assets] = useAssets([require('../assets/images/level-1-background.png')]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
 
