@@ -16,22 +16,22 @@ export interface ILevelLink {
   linkOptions: ILinkOptions
 }
 
-const LevelLink = ({ id, href, callback, linkOptions }: ILevelLink) => {
+const LevelLink = ({ id, href, linkOptions }: ILevelLink) => {
   return (
-    <Pressable onPress={callback}>
-      <Link
-        id={id}
-        href={`http${href}`}
-        style={{
-          width: linkOptions.width,
-          height: linkOptions.height,
-          position: 'absolute',
-          top: linkOptions.top,
-          left: linkOptions.left,
-          zIndex: 1,
-        }}
-      />
-    </Pressable>
+    <Link
+      id={id}
+      href={href}
+      style={{
+        width: linkOptions.width,
+        height: linkOptions.height,
+        borderWidth: 2,
+        borderColor: 'black',
+        position: 'absolute',
+        top: linkOptions.top,
+        left: linkOptions.left,
+        zIndex: 1,
+      }}
+    />
   )
 }
 
