@@ -81,15 +81,19 @@ export default function Level1() {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#91E8FC',
+    display: 'flex',
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
   },
   image: {
-    width: 385.41,
-    height: 610.22,
+    width: 400,
+    height: 800,
     marginBottom: 20,
+    position: "absolute",
+    top: 0,
+    left: 0
   },
   header: {
     fontSize: 28,
