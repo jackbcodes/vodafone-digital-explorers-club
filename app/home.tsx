@@ -1,10 +1,12 @@
+import { useEffect, useState } from 'react'
 import { StyleSheet, View } from 'react-native'
+
+import { useAsyncStorage } from '@react-native-async-storage/async-storage'
 
 import LevelLink, { ILevelLink } from '../components/LevelLink'
 import { WorldMap } from '../components/WorldMap'
-import { useLevel } from '../utils/storage'
 
-const levels: ILevelLink[] = [
+const levels: Omit<ILevelLink, 'currentLevel'>[] = [
   {
     level: 1,
     linkOptions: {
@@ -62,17 +64,28 @@ const levels: ILevelLink[] = [
 ]
 
 export default function HomeScreen() {
-  const level = useLevel()
+  const [currentLevel, setCurrentLevel] = useState(0)
+  const { getItem } = useAsyncStorage('current-level')
+
+  const readItemFromStorage = async () => {
+    const item = await getItem()
+    setCurrentLevel(item ? Number(item) : 1)
+  }
+
+  useEffect(() => {
+    readItemFromStorage()
+  }, [])
 
   return (
     <View style={styles.container}>
-      {levels &&
-        levels.map((level) => (
-          <LevelLink
-            level={level.level}
-            linkOptions={level.linkOptions}
-          />
-        ))}
+      {levels.map((level) => (
+        <LevelLink
+          currentLevel={currentLevel}
+          key={level.level}
+          level={level.level}
+          linkOptions={level.linkOptions}
+        />
+      ))}
       <WorldMap />
     </View>
   )
