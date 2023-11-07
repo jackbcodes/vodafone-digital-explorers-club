@@ -2,9 +2,8 @@ import { StyleSheet, View } from 'react-native'
 
 import LevelLink from '../components/LevelLink'
 import { WorldMap } from '../components/WorldMap'
+import { levels } from '../constants/levels'
 import { useLevelStore } from '../hooks/useLevelStore'
-
-import { levels } from './constants/levels'
 
 export default function HomeScreen() {
   const currentLevel = useLevelStore((state) => state.currentLevel)
