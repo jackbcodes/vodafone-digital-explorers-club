@@ -10,7 +10,7 @@ const questions = [
     text: 'If you see something online that makes you feel uncomfortable, you should keep it to yourself.',
     isTrue: false,
   },
-  { text: 'If something online makes you feel uncomfortable, clicking on it might be fun.', isTrue: true },
+  { text: 'If something online makes you feel uncomfortable, clicking on it might be fun.', isTrue: false },
   {
     text: 'When you see something online that makes you uncomfortable, you should tell a trusted adult right away.',
     isTrue: true,
