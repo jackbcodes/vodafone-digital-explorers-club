@@ -1,7 +1,28 @@
-import { StyleSheet, View } from 'react-native'
+import {Image, StyleSheet, Text, View} from 'react-native'
+import {useAssets} from "expo-asset";
+import React from "react";
 
 export default function LevelSixScreen() {
-  return <View style={styles.container} />
+
+  const [assets] = useAssets([require('../assets/images/qr-codes/reward-qr-code.png')]);
+
+  if (!assets) {
+    return (
+        <View style={styles.container}>
+          <Text>Loading...</Text>
+        </View>
+    );
+  }
+
+  return <View style={styles.container} >
+    <Text style={styles.header}>Well Done!</Text>
+    <Text style={styles.completed}>You've completed the Vodafone Digital Explorers Club!</Text>
+    <Text style={styles.reward}>Please scan the QR code below to claim your free reward.</Text>
+    <Image
+        style={styles.qrCode}
+        source={assets[0]}
+    />
+  </View>
 }
 
 const styles = StyleSheet.create({
@@ -10,5 +31,33 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  header: {
+    fontSize: 28,
+    color: '#666666',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginTop: 20,
+    marginBottom: 20,
+  },
+  completed: {
+    fontSize: 28,
+    color: '#666666',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginTop: 20,
+    marginBottom: 20,
+  },
+  reward: {
+    fontSize: 20,
+    color: '#666666',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginTop: 20,
+    marginBottom: 20,
+  },
+  qrCode: {
+    width: 300,
+    height: 300,
   },
 })
