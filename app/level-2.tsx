@@ -163,8 +163,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     textAlign: 'center',
-    marginTop: 5,
-    marginBottom: 20,
+    paddingTop: 20,
   },
   buttonContainer: {
     flexDirection: 'row',
