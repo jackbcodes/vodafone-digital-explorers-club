@@ -1,6 +1,7 @@
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native'
 import {useAssets} from "expo-asset";
 import React, {useState} from "react";
+import {useRouter} from "expo-router";
 
 export default function LevelTwoScreen() {
   const [assets] = useAssets([require('../assets/images/chirpychick1.png'),require('../assets/images/chirpychick2.png'), require('../assets/images/chirpychick3.png'), require('../assets/images/chirpychick4.png'), require('../assets/images/chirpychick5.png'), require('../assets/images/chirpychick6.png')]);
@@ -13,12 +14,23 @@ export default function LevelTwoScreen() {
       text: 'The chick should have told her grown up where she was going.',
       isTrue: true,
     },
-    { text: 'It was a good idea for her to meet her new friend in real life?', isTrue: false },
+    { text: 'It was a good idea for her to meet her new friend in real life.', isTrue: false },
     {
-      text: 'People don\'t always use their real photo and give their real age',
+      text: 'People don\'t always use their real photo and give their real age.',
       isTrue: true,
     },
   ]
+
+  const router = useRouter();
+
+  if (!assets) {
+    return (
+        <View style={styles.container}>
+          <Text>Loading...</Text>
+        </View>
+    );
+  }
+
   const nextPage = () => {
     setCurrentPage(currentPage + 2);
   }
@@ -44,7 +56,6 @@ export default function LevelTwoScreen() {
 
   function showImagesOrQuestions() {
     if (currentPage > 4) {
-      console.log('we should be showing a question here');
       return (<View style={styles.container}>
         <Text style={styles.question}>{questions[currentQuestionIndex].text}</Text>
         <View style={styles.buttonContainer}>
@@ -133,5 +144,14 @@ const styles = StyleSheet.create({
     fontSize: 24,
     textAlign: 'center',
     marginBottom: 20,
+  },
+  confettiView: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    zIndex: 2,
+
   },
 })
