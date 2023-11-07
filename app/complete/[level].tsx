@@ -24,7 +24,7 @@ export default function ModalScreen() {
   }
 
   const handleNextLevel = async () => {
-    setLevel(2)
+    setLevel(Number(params.level) + 1)
     router.push('/home')
   }
 
