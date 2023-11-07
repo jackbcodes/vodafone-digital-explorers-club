@@ -54,7 +54,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
+    paddingTop: 30
   },
   title: {
     fontSize: 20,
@@ -68,5 +69,6 @@ const styles = StyleSheet.create({
   image: {
     width: 300,
     height: 300,
+    marginBottom: 30,
   },
 })
