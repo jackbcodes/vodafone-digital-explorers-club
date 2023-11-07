@@ -3,6 +3,7 @@ import { Image, StyleSheet, Text, View } from 'react-native'
 
 import { useAssets } from 'expo-asset'
 import { StatusBar } from 'expo-status-bar'
+import ConfettiCannon from "react-native-confetti-cannon";
 
 export default function LevelSixScreen() {
   const [assets] = useAssets([require('../assets/images/qr-codes/reward-qr-code.png')])
@@ -26,6 +27,7 @@ export default function LevelSixScreen() {
       />
       {/* Use a light status bar on iOS to account for the black space above the modal */}
       <StatusBar style='light' />
+      <ConfettiCannon count={200} origin={{ x: 50, y: 100 }} />
     </View>
   )
 }
