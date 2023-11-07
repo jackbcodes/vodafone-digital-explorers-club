@@ -49,11 +49,13 @@ export default function Level1() {
     if (nextQuestionIndex < questions.length) {
       setCurrentQuestionIndex(nextQuestionIndex);
     } else {
-      const passed = score >= passingScore;
-      router.push(`/complete/1`)
-      // alert(`Game Over! Your score is ${score} ${passed ? 'You passed!' : 'Try again!'}`);
-      setCurrentQuestionIndex(0);
-      setScore(0);
+      const passed = score >= passingScore
+      if (passed) {
+        router.push(`/complete/1`)
+      }
+      alert(`Game Over! Your score is ${score} out of ${questions.length} please try again!`)
+      setCurrentQuestionIndex(0)
+      setScore(0)
     }
   };
 
