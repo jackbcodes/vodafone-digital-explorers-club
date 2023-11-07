@@ -1,4 +1,4 @@
-import { ILevelLink } from "../../components/LevelLink";
+import type { ILevelLink } from '../components/LevelLink'
 
 export const levels: Omit<ILevelLink, 'currentLevel'>[] = [
   {
