@@ -8,6 +8,7 @@ export default function LevelTwoScreen() {
   const [currentPage, setCurrentPage] = useState(0);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
+  const passingScore: number = 2;
   const questions = [
     {
       text: 'The chick should have told her grown up where she was going.',
@@ -46,9 +47,14 @@ export default function LevelTwoScreen() {
     if (nextQuestionIndex < questions.length) {
       setCurrentQuestionIndex(nextQuestionIndex);
     } else {
-      router.push(`/complete/2`)
-      setCurrentQuestionIndex(0);
-      setScore(0);
+      const passed = score >= passingScore
+      if (passed) {
+        router.push(`/complete/2`)
+      } else {
+        alert(`Game Over! Your score is ${score} out of ${questions.length} please try again!`)
+        setCurrentQuestionIndex(0)
+        setScore(0)
+      }
     }
   };
 

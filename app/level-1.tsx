@@ -29,7 +29,7 @@ export default function Level1() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
   const [score, setScore] = useState(0);
-  const passingScore = (questions.length / 100) * 80;
+  const passingScore = (questions.length / 100) * 66;
 
   const router = useRouter()
 
@@ -52,10 +52,11 @@ export default function Level1() {
       const passed = score >= passingScore
       if (passed) {
         router.push(`/complete/1`)
+      } else {
+        alert(`Game Over! Your score is ${score} out of ${questions.length} please try again!`)
+        setCurrentQuestionIndex(0)
+        setScore(0)
       }
-      alert(`Game Over! Your score is ${score} out of ${questions.length} please try again!`)
-      setCurrentQuestionIndex(0)
-      setScore(0)
     }
   };
 
