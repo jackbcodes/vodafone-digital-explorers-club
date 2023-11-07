@@ -2,6 +2,8 @@ import { View } from 'react-native'
 
 import { Link } from 'expo-router'
 
+import { useLevelStore } from '../hooks/useLevelStore'
+
 import { Tobi } from './Tobi'
 
 interface ILinkOptions {
@@ -13,16 +15,15 @@ interface ILinkOptions {
 
 export interface ILevelLink {
   level: 1 | 2 | 3 | 4 | 5 | 6
-  currentLevel: number
   linkOptions: ILinkOptions
 }
 
-const LevelLink = ({ level, currentLevel, linkOptions }: ILevelLink) => {
-  const isCurrentLevel = currentLevel === level
+const LevelLink = ({ level, linkOptions }: ILevelLink) => {
+  const isCurrentLevel = useLevelStore((state) => state.currentLevel === level)
 
   return (
     <Link
-      disabled={!isCurrentLevel}
+      disabled={level !== 6 && !isCurrentLevel}
       href={`/level-${level}`}
       style={{
         width: linkOptions.width,

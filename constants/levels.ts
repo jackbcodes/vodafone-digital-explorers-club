@@ -1,6 +1,6 @@
 import type { ILevelLink } from '../components/LevelLink'
 
-export const levels: Omit<ILevelLink, 'currentLevel'>[] = [
+export const levels: ILevelLink[] = [
   {
     level: 1,
     linkOptions: {

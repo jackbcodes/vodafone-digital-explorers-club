@@ -69,12 +69,9 @@ function RootLayoutNav() {
       />
       <Stack.Screen
         name='level-6'
-        options={{ title: 'Level 6' }}
+        options={{ title: 'Complete', presentation: 'modal', headerShown: false }}
       />
       <Stack.Screen
-        name='modal'
-        options={{ presentation: 'modal' }}
-      /><Stack.Screen
         name='complete/[level]'
         options={{ title: '', presentation: 'modal' }}
       />
